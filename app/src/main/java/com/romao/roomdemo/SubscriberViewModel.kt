@@ -46,7 +46,7 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
             statusMessage.value = Event("Please enter subscribers name ")
         } else if (inputMail.value == null) {
             statusMessage.value = Event("Please enter subscribers email ")
-        } else if (Patterns.EMAIL_ADDRESS.matcher(inputMail.value!!).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(inputMail.value!!).matches()) {
                 statusMessage.value = Event("Please enter a correct email address ")
             }
         else {
